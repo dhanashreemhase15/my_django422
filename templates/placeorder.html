@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+    <!-- main content start-->
+    <div class="row mt-4">
+        <div class="col-md-9">
+            <h5 class="bg-danger text-white p-2">Customer Details</h5>
+            {% for x in data %}
+            {% if forloop.counter == 1 %}
+            <p><strong>Name:</strong>{{x.uid.username}}</p>
+            <p><strong>Mobile:</strong>9090909090</p>
+            <p><strong>Email ID:</strong>{{x.uid.email}}</p>
+            {% endif %}
+            {% endfor %}
+            <h5 class="bg-danger text-white p-2">Product Details</h5>
+            {% for x in data %}
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{x.pid.pimage.url}}" width="" height="" alt="" />
+                </div>
+                <div class="col-md-6 mt-3">
+                    <p><strong>Product Name:</strong> {{x.pid.name}}</p>
+                    <p><strong>Price:</strong> Rs.{{x.pid.price}}</p>
+                    {% if x.pid.cat == 1 %}
+                    <p><strong>Category:</strong> Mobile</p>
+                    {% elif x.pid.cat == 2 %}
+                    <p><strong>Category:</strong> Shoes</p>
+                    {% else %}
+                    <p><strong>Category:</strong> Clothes</p>
+                    {% endif %}
+                    <p><strong>Product Description:</strong> {{x.pid.pdetails}}</p> 
+                    <a href="#" class="btn btn-danger">Remove</a>  
+                </div>
+            </div><!-- product section end-->
+            {% endfor %}
+        </div><!-- customer and product details end-->
+        <div class="col-md-3">
+            <h5 class="bg-danger text-white p-2">Total Amount</h5>
+            <p><strong>Total ({{np}} items):</strong>Rs.{{total}}</p>
+            <hr>
+            <p><strong>Total Amount:</strong>Rs.{{total}}</p>
+            <a href="/makepayment" class="btn btn-danger">Make Payment</a>
+        </div><!-- Total amount section end-->
+    </div>
+
+    <!-- main content end-->
+
+{% endblock 'main' %}

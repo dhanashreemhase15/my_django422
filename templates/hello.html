@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates</title>
+</head>
+<body>
+    <h1>Template as a Response</h1>
+    <p>data is: {{greet}}</p>
+    <!-- {{x}} <br>
+     {{y}}<br> -->
+    {% comment %}
+    {% if x > y %}
+        <p>{{x}} is greater</p>
+    {% else %}
+        <p>{{y}} is greater</p>
+    {% endif %}
+    {% endcomment %}
+    {{l}}
+    {% for x in l %}
+        <p>{{x}}</p>
+    {% endfor %}
+    {% for x in products %}
+        <!-- {{x}}<br> -->
+        <strong>Sr.No.:</strong>{{forloop.counter}}<br>
+        <strong>Name:</strong>{{x.name}}<br>
+        <strong>Cat:</strong>{{x.cat}}<br>
+        <strong>Price</strong>{{x.price}}<br>
+        <hr>
+    {% endfor %}
+</body>
+</html>
